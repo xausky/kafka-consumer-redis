@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.xausky</groupId>
-    <artifactId>kafka-consumer-hbase</artifactId>
+    <artifactId>kafka-consumer-redis</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <hbase.version>1.2.3</hbase.version>
+        <jedis.version>2.7.3</jedis.version>
         <kafka.version>0.10.0.1</kafka.version>
     </properties>
 
@@ -20,9 +20,9 @@
             <version>${kafka.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.hbase</groupId>
-            <artifactId>hbase-client</artifactId>
-            <version>${hbase.version}</version>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
         </dependency>
     </dependencies>
 
@@ -35,7 +35,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>io.github.xausky.kch.Main</mainClass>
+                            <mainClass>io.github.xausky.kcr.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -44,7 +44,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <configuration>
-                    <finalName>kafka-consumer-hbase</finalName>
+                    <finalName>kafka-consumer-redis</finalName>
                     <createDependencyReducedPom>true</createDependencyReducedPom>
                     <filters>
                         <filter>

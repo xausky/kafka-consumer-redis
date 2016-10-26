@@ -1,7 +1,7 @@
-package io.github.xausky.kch;
+package io.github.xausky.kcr;
 
-import io.github.xausky.kch.config.Config;
-import io.github.xausky.kch.config.TopicConfig;
+import io.github.xausky.kcr.config.Config;
+import io.github.xausky.kcr.config.TopicConfig;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class Main {
             for(int i=0;i<topicConfig.getThreadCount();i++){
                 try {
                     consumers.add(new ConsumerThread(config, topicConfig));
-                }catch (IOException e){
+                }catch (Exception e){
                     logger.warning("Connect kafka or hbase fail:"+e.getMessage());
                 }
             }
